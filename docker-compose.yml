@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  books-service:
+    build: ./books-service
+    ports:
+      - "3001:3000"
+    env_file:
+      - ./books-service/.env
+
+  customers-service:
+    build: ./customers-service
+    ports:
+      - "3002:3000"
+    env_file:
+      - ./customers-service/.env
+
+  bff-web:
+    build: ./bff-web
+    ports:
+      - "8080:80"
+    env_file:
+      - ./bff-web/.env
+
+  bff-mobile:
+    build: ./bff-mobile
+    ports:
+      - "8081:80"
+    env_file:
+      - ./bff-mobile/.env
